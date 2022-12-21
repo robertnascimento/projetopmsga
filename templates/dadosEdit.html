@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EDITAR SEUS DADOS</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>user: {{form.username}}</p>
+        
+        <p>email: {{form.email}}</p>
+        <p>nome: {{form.nome}}</p>
+        <p>idade: {{form.idade}}</p>
+        <p>cpf: {{form.cpf}}</p>
+
+        <p>senha: {{form.password1}}</p>
+        <p>confirme sua senha: {{form.password2}}</p>
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

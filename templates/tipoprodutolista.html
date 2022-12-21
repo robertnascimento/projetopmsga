@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TIPOS DE PRODUTOS</h1>
+    {% for tpProd in list_tipoProduto %}
+    <p>{{tpProd.nome}}</p>
+    <a href="{% url 'edit_tipoProduto' tpProd.id %}">EDITAR</a>
+    <a href="{% url 'del_tipoProduto' tpProd.id %}">EXCLUIR</a>
+    {% empty %}
+        <p>Nenhum tipo de produto cadastrado</p>
+    {% endfor %}
+    <a href="{% url 'cad_tipoProduto' %}">CADASTRAR TIPO DE PRODUTO</a>
+</body>
+</html>
