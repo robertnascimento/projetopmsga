@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import Permission
+from django import requests
 from django.contrib import messages
 from .models import Fornecedor, TipoProduto , Produto, Usuario, Retiradas
 from .forms import FornecedorForm, TipoProdutoForm, ProdutoForm, UsuarioCreationForm, RetiradaForm
@@ -9,7 +10,7 @@ from .forms import FornecedorForm, TipoProdutoForm, ProdutoForm, UsuarioCreation
 
 @login_required
 def home(request):
-    return render(request,'home.html')
+    return render(request,'https://home.html')
 
 
 @login_required
