@@ -75,7 +75,7 @@
       <tbody>
         {% for fornec in list_fornecedor %}
         <tr>
-          <td>{{fornec.nome}}</td>
+          <td>{{fornec.nome|upper}}</td>
           <td>{{fornec.cnpj}}</td>
           <td>{{fornec.telefone}}</td>
           <td>{{fornec.emailFornecedor}}</td>
@@ -108,7 +108,14 @@
           </td>
         </tr>
         {% empty %}
-        <td>SEM FORNECEDORES CADASTRADOS</td>
+        <td></td>
+        <td class="noBorder"></td>
+        <td class="noBorder"></td>
+        <td class="noBorder">SEM FORNECEDORES CADASTRADOS</td>
+        <td class="noBorder"></td>
+        <td class="noBorder"></td>
+        <td class="noBorder"></td>
+        <td></td>
         {% endfor %}
       </tbody>
     </table>

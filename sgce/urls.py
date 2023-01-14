@@ -22,7 +22,7 @@ from core.views import produto_lista, produto_edit, produto_cadastro, produto_re
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-    path('home/',home,name='home'),
+    path('',home,name='home'),
 
     path('perfil/',perfil,name='perfil'),
     path('login/',LoginView.as_view(),name='login'),

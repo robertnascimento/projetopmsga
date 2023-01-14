@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/cadObjeto.css' %}" />
     <title>Document</title>
-</head>
-<body>
-    <h1>CADASTRAR TIPO DE PRODUTO</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit">Salvar</button>
-    </form>
-</body>
+  </head>
+
+  <body>
+    <header></header>
+
+    <main>
+      <form method="post" enctype="multipart/form-data">
+        <div class="telaCad">
+          <div class="nameTLR">
+            <h1>CADASTRAR OBJETO</h1>
+          </div>
+          {% csrf_token %}
+          <div class="alinhamento">
+            <h4>TIPO DE OBJETO:</h4>
+            <p>{{form.nome}}</p>
+
+          </div>
+          <button type="submit"><h4>CADASTRAR</h4></button>
+        </div>
+      </form>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/1e09d9b871.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

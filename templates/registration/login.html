@@ -1,23 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/telaLogin.css' %}" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <header></header>
 
-    <h1>PÁGINA DE LOGIN</h1>
-    <form method="post">
+    <main>
+      <form method="post">
         {% csrf_token %}
-        <p>Usuário: {{ form.username }}</p>
-        <p>Senha: {{ form.password }}</p>
-        <p><input type="submit" value="Autenticar" /></p>
-    </form>
+        <div class="telaLogin">
+          <div class="nameTLR">
+            <h1>LOGIN</h1>
+          </div>
 
-</body>
+          <div class="emailRL">
+            <i class="fa-sharp fa-solid fa-id-card"></i>
+            {{ form.username }}
+          </div>
 
+          <div class="passLogin">
+            <i class="fa-solid fa-key"></i>
+            {{ form.password }}
+          </div>
+
+          <div class="btnChcLogin">
+
+            <div class="btn">
+              <button class="botaoLR" type="submit">Log In</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/1e09d9b871.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -30,6 +30,11 @@
     display: flex;
 }
 
+.imgEsp{
+  
+    display: flex;
+}
+
 .fornecedoresCadCSS a h4{
     margin-left: 5px;
 }

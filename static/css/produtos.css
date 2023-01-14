@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infosCima {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.produtosCadCSS {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.produtosCadCSS a:hover {
+  color: brown;
+  text-decoration: underline;
+}
+
+.produtosCadCSS a {
+  text-decoration: none;
+  color: rgb(38, 38, 38);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left: 15px;
+}
+
+tbody td {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.sobreposicao{
+    width: 0;
+    height: 0;
+}
+
+@media (max-width: 1250px) {
+}

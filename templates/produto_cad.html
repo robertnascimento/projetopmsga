@@ -1,30 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/cadProduto.css' %}" />
     <title>Document</title>
-</head>
-<body>
-    <h1>CADASTRO DE PRODUTOS</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <p>Modelo: {{form.modelo}}</p>
-        <p>Quantidade: {{form.quantidade}}</p>
-        <p>Fornecedor: {{form.fornecedor}}</p>
-        <p>Tipo de equipamento: {{form.equipamento}}</p>
-        <p>Foto: {{form.fotoUm}}</p>
+  </head>
 
-        <p>Foto: {{form.fotoDois}}</p>
+  <body>
+    <header></header>
 
-        <p>Foto: {{form.fotoTres}}</p>
+    <main>
+      <form method="post" enctype="multipart/form-data">
+        <div class="telaCad">
+          <div class="nameTLR">
+            <h1>CADASTRAR PRODUTO</h1>
+          </div>
+          {% csrf_token %}
+          <div class="alinhamento">
+            <h4>MODELO:</h4>
+            <p>{{form.modelo}}</p>
 
-        <p>Foto: {{form.fotoQuatro}}</p>
+            <h4>QUANTIDADE:</h4>
+            <p>{{form.quantidade}}</p>
 
-        <p>Foto: {{form.fotoCinco}}</p>
+            <h4>FORNECEDOR:</h4>
+            <p>{{form.fornecedor}}</p>
 
-        <button type="submit">CADASTRAR</button>
-    </form>
-</body>
+            <h4>EQUIPAMENTO:</h4>
+            <p>{{form.equipamento}}</p>
+
+            <h4>FOTO:</h4>
+            <p>{{form.fotoUm}}</p>
+
+            <h4>FOTO:</h4>
+            <p>{{form.fotoDois}}</p>
+
+            <h4>FOTO:</h4>
+            <p>{{form.fotoTres}}</p>
+
+          </div>
+          <button type="submit"><h4>CADASTRAR</h4></button>
+        </div>
+      </form>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/1e09d9b871.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -15,7 +15,7 @@ class TipoProdutoForm(forms.ModelForm):
 class ProdutoForm(forms.ModelForm):
     class Meta:
         model = Produto
-        fields = ['modelo','quantidade','fornecedor','equipamento','fotoUm','fotoDois','fotoTres','fotoQuatro','fotoCinco']
+        fields = ['modelo','quantidade','fornecedor','equipamento','fotoUm','fotoDois','fotoTres']
 
 class UsuarioCreationForm(UserCreationForm):
     class Meta:

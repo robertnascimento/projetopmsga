@@ -42,8 +42,6 @@ class Produto(models.Model):
     fotoUm = models.ImageField('Foto',upload_to='fotosProduto',blank=False)
     fotoDois = models.ImageField('Foto',upload_to='fotosProduto',blank=True)
     fotoTres = models.ImageField('Foto',upload_to='fotosProduto',blank=True)
-    fotoQuatro = models.ImageField('Foto',upload_to='fotosProduto',blank=True)
-    fotoCinco = models.ImageField('Foto',upload_to='fotosProduto',blank=True)
     fornecedor = models.ForeignKey(Fornecedor,on_delete=models.CASCADE)
     equipamento = models.ForeignKey(TipoProduto,on_delete=models.CASCADE)
 

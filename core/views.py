@@ -87,7 +87,7 @@ def fornecedor_Edit(request,id):
 def fornecedor_remover(request, id):
     frnc = Fornecedor.objects.get(pk=id)
     frnc.delete()
-    return redirect('list_fornecedores')
+    return redirect('list_fornecedor')
 
 
 
@@ -107,6 +107,8 @@ def tipoProduto_Lista(request):
 def tipoProduto_Cadastro(request):
     form = TipoProdutoForm(request.POST or None)
     if form.is_valid():
+        upperCase = request.POST['nome']
+        form.nome = upperCase.upper()
         form.save()
         return redirect('list_tipoProduto')
 
@@ -190,13 +192,17 @@ def retiradas(request,id):
     if form.is_valid():
         qtd = request.POST['quantidaderet']
         qtdInt = int(qtd)
-        if qtdInt <= prod.quantidade:
+        if prod.quantidade == 0:
+            messages.error(request,"Não tem produtos no estoque")
+        elif qtdInt <= 0:
+            messages.error(request,"Digite uma quantidade valída")
+        elif qtdInt <= prod.quantidade:
             prod.quantidade -= qtdInt
             messages.success(request,"Retirada realizada com sucesso")
             form.save()
             prod.save()
         else:
-            messages.error(request,"Quantidade solicitada, maior do que à quantidade disponível")
+            messages.info(request,"Quantidade solicitada, maior do que à quantidade disponível")
     
         return redirect('list_produto')
 
@@ -207,13 +213,18 @@ def retiradas(request,id):
 
     return render(request,'retirada.html',contexto)
 
+"""
+RETIRADAS REALIZADAS
+"""
 def retiradasrealizadas(request):
     rtrd = Retiradas.objects.all()
     contexto = {
         'rtrok': rtrd
     }
     return render(request,'retiradasrealizadas.html',contexto)
-
+"""
+DELETAR RETIRADAS REALIZADAS
+"""
 def retreal_remover(request, id):
     rtr = Retiradas.objects.get(pk=id)
     rtr.delete()
