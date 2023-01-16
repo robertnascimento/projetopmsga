@@ -28,13 +28,13 @@ class Fornecedor(models.Model):
     fotoFornecedor = models.ImageField('Foto',upload_to='fornecedoresImg',null=True)
 
     def __str__(self):
-        return self.nome
+        return self.nome.upper()
 
 class TipoProduto(models.Model):
     nome = models.CharField('Nome',max_length=20,blank=False)
 
     def __str__(self):
-        return self.nome
+        return self.nome.upper()
 
 class Produto(models.Model):
     modelo = models.CharField('Nome',max_length=30,blank=False)
@@ -51,4 +51,5 @@ class Produto(models.Model):
 
 class Retiradas(models.Model):
     quantidaderet = models.IntegerField('Quantidade',blank=False)
+    nome = models.CharField('Usuário',max_length=100,blank=True)
     

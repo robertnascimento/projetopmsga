@@ -25,4 +25,4 @@ class UsuarioCreationForm(UserCreationForm):
 class RetiradaForm(forms.ModelForm):
     class Meta:
         model = Retiradas
-        fields = ['quantidaderet']
+        fields = ['quantidaderet','nome']

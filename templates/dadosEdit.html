@@ -10,16 +10,8 @@
     <h1>EDITAR SEUS DADOS</h1>
     <form method="post">
         {% csrf_token %}
-        <p>user: {{form.username}}</p>
-        
-        <p>email: {{form.email}}</p>
-        <p>nome: {{form.nome}}</p>
-        <p>idade: {{form.idade}}</p>
-        <p>cpf: {{form.cpf}}</p>
-
-        <p>senha: {{form.password1}}</p>
-        <p>confirme sua senha: {{form.password2}}</p>
-        <input type="submit" value="Cadastrar">
+        {{form}}
+        <input type="submit" value="ATUALIZAR">
     </form>
 </body>
 </html>

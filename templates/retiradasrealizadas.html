@@ -19,6 +19,7 @@
     
     {% for rtrd in rtrok %}
     <p>{{rtrd.quantidaderet}}</p>
+    <p>{{rtrd.nome}}</p>
     <a href="{% url 'rtrdel' rtrd.id %}">EXCLUIR</a>
     {% empty %}
     <p>Não houve retiradas</p>

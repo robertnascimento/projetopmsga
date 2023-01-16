@@ -17,15 +17,15 @@
   <body>
     {% for message in messages %} {% if message.tags == 'error' %}
     <div class="alert alert-danger" role="alert">
-      <strong>!</strong>{{ message }}
+      <strong>!</strong>{{ message  | upper }}
     </div>
     {% endif %} {% if message.tags == 'info' %}
     <div class="alert alert-warning" role="alert">
-      <strong>!</strong>{{ message }}
+      <strong>!</strong>{{ message  | upper }}
     </div>
     {% endif %} {% if message.tags == 'success' %}
     <div class="alert alert-success" role="alert">
-      <strong>!</strong>{{ message }}
+      <strong>!</strong>{{ message  | upper }}
     </div>
     {% endif %} {% endfor %}
 
@@ -52,7 +52,10 @@
       <div class="row3">
         <a href="{% url 'edit_produto' prod.id %}"><h6>EDITAR</h6></a>
         <a href="{% url 'del_produto' prod.id %}"><h6>DELETAR</h6></a>
+        {% if prod.quantidade == 0 %}
+        {% else %}
         <a href="{% url 'retiradas' prod.id %}"><h6>REALIZAR </br> RETIRADA</h6></a>
+        {% endif %}
       </div>
     </div>
     {% empty %}

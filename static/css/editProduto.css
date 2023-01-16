@@ -33,7 +33,7 @@ main {
   flex-direction: column;
   border-radius: 5px;
   width: 420px;
-  height: 500px;
+  height: 550px;
   background-color: var(--cinzabg);
 }
 

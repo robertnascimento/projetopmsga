@@ -1,17 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/cadFornecedor.css' %}" />
     <title>Document</title>
-</head>
-<body>
-    <h1>EDITAR PRODUTOS</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form}}
-        <p id="botaoform"><input type="submit" value="Atualizar"></p>
-    </form>
-</body>
+  </head>
+
+  <body>
+    <header></header>
+
+    <main>
+      <form method="post" enctype="multipart/form-data">
+        <div class="telaCad">
+          <div class="nameTLR">
+            <h1>EDITAR PRODUTO</h1>
+          </div>
+          {% csrf_token %}
+          <div class="alinhamento">
+            <h4>MODELO:</h4>
+            <p>{{form.modelo}}</p>
+
+            <h4>QUANTIDADE:</h4>
+            <p>{{form.quantidade}}</p>
+
+            <h4>FOTO I:</h4>
+            <p>{{form.fotoUm}}</p>
+
+            <h4>FOTO II:</h4>
+            <p>{{form.fotoDois}}</p>
+
+            <h4>FOTO III:</h4>
+            <p>{{form.fotoTres}}</p>
+
+            <h4>FORNECEDOR:</h4>
+            <p>{{form.fornecedor}}</p>
+
+            <h4>EQUIPAMENTO:</h4>
+            <p>{{form.equipamento}}</p>
+          </div>
+          <p id="botaoform"><input type="submit" value="Atualizar"></p>
+        </div>
+      </form>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/1e09d9b871.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
