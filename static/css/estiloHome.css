@@ -18,15 +18,16 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     justify-content: space-around;
+    height: 100vh;
 }
 
 a .linkDivs{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 }
 
 .prod{
-    width: 300px;
+    width: 25vw;
     height: 300px;
     border-radius: 25px;
     margin: 40px;
@@ -34,4 +35,10 @@ a .linkDivs{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.prod h5{
+
+    margin-top: 5px;
+
 }

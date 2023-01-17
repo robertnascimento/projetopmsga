@@ -52,6 +52,7 @@
       <div class="row3">
         <a href="{% url 'edit_produto' prod.id %}"><h6>EDITAR</h6></a>
         <a href="{% url 'del_produto' prod.id %}"><h6>DELETAR</h6></a>
+        <a href="{% url 'entradas' prod.id %}"><h6>INSERIR </br></h6></a>
         {% if prod.quantidade == 0 %}
         {% else %}
         <a href="{% url 'retiradas' prod.id %}"><h6>REALIZAR </br> RETIRADA</h6></a>

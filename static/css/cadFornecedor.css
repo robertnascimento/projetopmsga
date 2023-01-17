@@ -64,8 +64,18 @@ main {
 .btnVoltar{
   border: 1px;
   border-style: solid;
-  font-style: none;
-  background-color: blue;
+  background-color: rgb(110, 110, 110);
   width: 20px;
   height: 20px;
+}
+
+.btnVoltar p{
+  font-style: none;
+  color: black;
+}
+
+.btns{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }

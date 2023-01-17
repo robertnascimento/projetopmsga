@@ -15,7 +15,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="itensCenter col-12 col-sm-12">
+    <div class="itensCenter container-fluid">
       <div class="prod">
         <a href="{% url 'list_produto' %}">
           <div class="linkDivs">
@@ -23,6 +23,15 @@
           </div>
         </a>
         <h5>PRODUTOS</h5>
+      </div>
+
+      <div class="prod">
+        <a href="{% url 'entok' %}">
+          <div class="linkDivs">
+            <img src="{% static 'img/entradasRealizadas.png' %}" alt="" width="250px" height="250px">
+          </div>
+        </a>
+        <h5>ENTRADAS</h5>
       </div>
 
       <div class="prod">
@@ -40,7 +49,7 @@
             <img src="{% static 'img/tipodeprodutoIMGicon.png' %}" alt="" width="250px" height="250px">
           </div>
         </a>
-        <h5>TIPOS DE OBJETOS</h5>
+        <h5>TIPOS DE PRODUTOS</h5>
       </div>
 
       <div class="prod">

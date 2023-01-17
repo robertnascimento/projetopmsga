@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import Permission
 from django.contrib import messages
-from .models import Fornecedor, TipoProduto , Produto, Usuario, Retiradas
-from .forms import FornecedorForm, TipoProdutoForm, ProdutoForm, UsuarioCreationForm, RetiradaForm
+from .models import Fornecedor, TipoProduto , Produto, Usuario, Retiradas, Entradas
+from .forms import EntradaForm, FornecedorForm, TipoProdutoForm, ProdutoForm, UsuarioCreationForm, RetiradaForm
 
 
 @login_required
@@ -185,6 +185,10 @@ def produto_remover(request,id):
     prd.delete()
     return redirect('list_produto')
 
+
+"""
+RETIRADAS
+"""
 def retiradas(request,id):
     prod = Produto.objects.get(pk=id)
     form = RetiradaForm(request.POST or None)
@@ -226,8 +230,62 @@ def retiradasrealizadas(request):
 """
 DELETAR RETIRADAS REALIZADAS
 """
-def retreal_remover(request, id):
+def ret_real_remover(request, id):
     rtr = Retiradas.objects.get(pk=id)
     rtr.delete()
     messages.error(request,"Retirada apagada")
     return redirect('rtrok')
+
+
+
+"""
+ENTRADAS
+"""
+
+
+def entradas(request,id):
+    prod = Produto.objects.get(pk=id)
+    form = EntradaForm(request.POST or None)
+
+    if form.is_valid():
+        qtd = request.POST['quantidadeent']
+        qtdInt = int(qtd)
+        if qtdInt <= 0:
+            messages.error(request,"Digite uma quantidade válida")
+
+        elif qtdInt > 10:
+            messages.error(request,"Digite um valor menor ou igual à 10")
+
+        else:
+            prod.quantidade += qtdInt
+            messages.success(request,"Operação realizada com sucesso")
+            form.save()
+            prod.save()
+    
+        return redirect('list_produto')
+
+
+    contexto = {
+        'form': form
+    }
+
+    return render(request,'entrada.html',contexto)
+
+"""
+ENTRADAS REALIZADAS
+"""
+def entradasrealizadas(request):
+    entrok = Entradas.objects.all()
+    contexto = {
+        'entradaok': entrok
+    }
+    return render(request,'entradasrealizadas.html',contexto)
+
+"""
+DELETAR ENTRADAS REALIZADAS
+"""
+def ent_real_remover(request, id):
+    entr = Entradas.objects.get(pk=id)
+    entr.delete()
+    messages.error(request,"Entrada apagada")
+    return redirect('entok')

@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from core.views import retreal_remover,retiradasrealizadas,retiradas,perfil,dados,fornecedor_lista,fornecedor_Edit,fornecedor_cadastro,fornecedor_remover, tipoProduto_Edit,tipoProduto_Cadastro,tipoProduto_Lista
-from core.views import produto_lista, produto_edit, produto_cadastro, produto_remover, registro,tipoProduto_Remover,home
+from core.views import ent_real_remover,entradasrealizadas,ret_real_remover,retiradasrealizadas,retiradas,perfil,dados,fornecedor_lista,fornecedor_Edit,fornecedor_cadastro,fornecedor_remover, tipoProduto_Edit,tipoProduto_Cadastro,tipoProduto_Lista
+from core.views import entradas,produto_lista, produto_edit, produto_cadastro, produto_remover, registro,tipoProduto_Remover,home
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -47,7 +47,11 @@ urlpatterns = [
 
     path('retirada/<int:id>/',retiradas,name='retiradas'),
     path('retiradasrealizadas/',retiradasrealizadas,name='rtrok'),
-    path('retiradasrealizadas/<int:id>',retreal_remover,name='rtrdel'),
+    path('retiradasrealizadas/<int:id>',ret_real_remover,name='rtrdel'),
+
+    path('entradas/<int:id>',entradas,name='entradas'),
+    path('entradasrealizadas/',entradasrealizadas,name='entok'),
+    path('entradasrealizadas/<int:id>',ent_real_remover,name='entdel'),
 
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

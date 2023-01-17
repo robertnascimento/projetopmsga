@@ -46,10 +46,12 @@ class Produto(models.Model):
     equipamento = models.ForeignKey(TipoProduto,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.modelo
+        return self.modelo.upper()
 
 
 class Retiradas(models.Model):
     quantidaderet = models.IntegerField('Quantidade',blank=False)
     nome = models.CharField('Usuário',max_length=100,blank=True)
     
+class Entradas(models.Model):
+    quantidadeent = models.IntegerField('Quantidade',blank=False)
