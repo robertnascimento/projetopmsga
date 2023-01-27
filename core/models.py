@@ -16,7 +16,7 @@ class Usuario(AbstractUser):
         ]
 
     def __str__(self):
-        return self.nome
+        return self.nome.upper()
 
 
 class Fornecedor(models.Model):
@@ -51,7 +51,8 @@ class Produto(models.Model):
 
 class Retiradas(models.Model):
     quantidaderet = models.IntegerField('Quantidade',blank=False)
-    nome = models.CharField('Usuário',max_length=100,blank=True)
+    usuario = models.ForeignKey(Usuario,on_delete=models.PROTECT)
     
 class Entradas(models.Model):
     quantidadeent = models.IntegerField('Quantidade',blank=False)
+    usuario = models.ForeignKey(Usuario,on_delete=models.PROTECT)

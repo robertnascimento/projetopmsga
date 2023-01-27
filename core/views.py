@@ -201,7 +201,6 @@ def retiradas(request,id):
         elif qtdInt <= 0:
             messages.error(request,"Digite uma quantidade válida")
         elif qtdInt <= prod.quantidade:
-
             prod.quantidade -= qtdInt
             messages.success(request,"Retirada realizada com sucesso")
             form.save()
