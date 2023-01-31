@@ -1,16 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/estiloUm.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/estiloPerfil.css' %}"
+    />
+    <title>SGCE</title>
 </head>
 <body>
-    <h1>PÁGINA DE PERFIL</h1>
-    <p>Olá {{user.username}} </p>
-    <p>E-mail: {{user.email}} </p>
+    <div class="principal">
+        {% include "base/navbar.html "%}
+        <div class="containerprincipal">
+
+            <table class="usuario">
+                <thead class="tableup">
+                    <tr>
+                        <th>NOME</th>
+                        <th>SOBRENOME</th>
+                        <th>CPF</th>
+                        <th>E-MAIL</th>
+                        <th>IDADE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="trbody">
+                        <td>{{user.username}}</td>
+                        <td>{{user.nome}}</td>
+                        <td>{{user.cpf}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.idade}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
     <p><a href="{% url 'edit_dados' user.id %}">EDITAR DADOS</a></p>
-    <p><a href="{% url 'login' %}">Sair</a></p>
 </body>
 </html>

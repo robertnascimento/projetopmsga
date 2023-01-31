@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from core.views import ent_real_remover,entradasrealizadas,ret_real_remover,retiradasrealizadas,retiradas,perfil,dados,fornecedor_lista,fornecedor_Edit,fornecedor_cadastro,fornecedor_remover, tipoProduto_Edit,tipoProduto_Cadastro,tipoProduto_Lista
+from core.views import ent_real_remover,entradasrlzds,ret_real_remover,retiradasrealizadas,retiradas,perfil,dados,fornecedor_lista,fornecedor_Edit,fornecedor_cadastro,fornecedor_remover, tipoProduto_Edit,tipoProduto_Cadastro,tipoProduto_Lista
 from core.views import entradas,produto_lista, produto_edit, produto_cadastro, produto_remover, registro,tipoProduto_Remover,home
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -50,7 +50,7 @@ urlpatterns = [
     path('retiradasrealizadas/<int:id>',ret_real_remover,name='rtrdel'),
 
     path('entradas/<int:id>',entradas,name='entradas'),
-    path('entradasrealizadas/',entradasrealizadas,name='entok'),
+    path('entradasrealizadas/',entradasrlzds,name='entok'),
     path('entradasrealizadas/<int:id>',ent_real_remover,name='entdel'),
 
     path('admin/', admin.site.urls),

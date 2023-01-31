@@ -1,0 +1,76 @@
+{% load static %}
+<div class="navbar">
+        <div class="topNav">
+          <div class="logoSGCE">
+            <img
+              src="{% static 'img/logoSGCE.png' %}"
+              alt=""
+              height="85px"
+              width="85px"
+            />
+          </div>
+          <ul>
+            <a href="{% url 'home' %}">
+              <li>
+                <i class="fa-solid fa-house"></i>
+                HOME
+              </li>
+            </a>
+            <a href="{% url 'list_produto' %}">
+              <li>
+                <i class="fa-sharp fa-solid fa-box-archive"></i>
+                PRODUTOS
+              </li>
+            </a>
+            <a href="{% url 'list_fornecedor' %}">
+              <li>
+                <i class="fa-solid fa-dolly"></i>
+                FORNECEDORES
+              </li>
+            </a>
+            <a href="{% url 'list_tipoProduto' %}">
+              <li>
+                <i class="fa-solid fa-file-lines"></i>
+                TIPOS DE PRODUTOS
+              </li>
+            </a>
+            <a href="{% url 'rtrok' %}">
+              <li>
+                <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i>
+                RETIRADAS
+              </li>
+            </a>
+            <a href="{% url 'entok' %}">
+              <li>
+                <i class="fa-solid fa-turn-down"></i>
+                ENTRADAS
+              </li>
+            </a>
+          </ul>
+        </div>
+
+        <div class="bottomNav">
+          <ul>
+            <a href="{% url 'perfil' %}">
+              <li>
+                <i class="fa-sharp fa-solid fa-user"></i>
+                PERFIL
+              </li>
+            </a>
+            {% if not user.is_authenticated %}
+            <a href="">
+              <li>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                LOGIN
+              </li>
+            </a>
+            {% endif %}
+            <a href="{% url 'logout' %}">
+              <li>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                SAIR
+              </li>
+            </a>
+          </ul>
+        </div>
+      </div>

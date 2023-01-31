@@ -51,8 +51,9 @@ class Produto(models.Model):
 
 class Retiradas(models.Model):
     quantidaderet = models.IntegerField('Quantidade',blank=False)
-    usuario = models.ForeignKey(Usuario,on_delete=models.PROTECT)
+    nome = models.ForeignKey(Usuario,on_delete=models.PROTECT)
     
 class Entradas(models.Model):
     quantidadeent = models.IntegerField('Quantidade',blank=False)
-    usuario = models.ForeignKey(Usuario,on_delete=models.PROTECT)
+    nome = models.ForeignKey(Usuario,on_delete=models.PROTECT)
+

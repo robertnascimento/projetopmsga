@@ -7,50 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static '/css/produtos.css'%}" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/estiloUm.css' %}"
+  />
     <title>Document</title>
   </head>
   <body>
-    <div class="col-8">
-      <div class="infosCima">
-        <div>
-          <h1>TIPOS DE PRODUTOS</h1>
+    <div class="principal">
+      {% include "base/navbar.html "%}
+      <div class="conteudoProd">
+        <div class="infosCima">
+          <div>
+            <h1>TIPOS DE PRODUTOS</h1>
+          </div>
+          <div class="produtosCadCSS">
+            <a href="{% url 'cad_tipoProduto' %}">
+              <img
+              class="imgEsp"
+                src="/static/img/adicionarFornecedorIcon.png"
+                alt=""
+                width="20px"
+                height="20px"
+              />
+              <h4>CADASTRAR TIPO DE PRODUTO</h4>
+            </a>
+          </div>
         </div>
-        <div class="produtosCadCSS">
-          <a href="{% url 'cad_tipoProduto' %}">
-            <img
-            class="imgEsp"
-              src="/static/img/adicionarFornecedorIcon.png"
-              alt=""
-              width="20px"
-              height="20px"
-            />
-            <h4>CADASTRAR TIPO DE PRODUTO</h4>
-          </a>
-        </div>
+  
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>NOME</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            {% for tpProd in list_tipoProduto %}
+            <tr>
+              <td>{{tpProd.nome | upper}}</td>
+            </tr>
+            {% empty %}
+            <td>-----------</td>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
-      <table class="table">
-        <thead class="table-dark">
-          <tr>
-            <th>NOME</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for tpProd in list_tipoProduto %}
-          <tr>
-            <td>{{tpProd.nome | upper}}</td>
-          </tr>
-          {% empty %}
-          <td>SEM FORNECEDORES CADASTRADOS</td>
-          {% endfor %}
-        </tbody>
-      </table>
+
     </div>
   </body>
+
+
   <script
     src="https://kit.fontawesome.com/1e09d9b871.js"
     crossorigin="anonymous"

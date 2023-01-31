@@ -9,7 +9,11 @@ from .forms import EntradaForm, FornecedorForm, TipoProdutoForm, ProdutoForm, Us
 
 @login_required
 def home(request):
-    return render(request,'home.html')
+    fornec = Fornecedor.objects.order_by('id')
+    contexto = {
+        'home': fornec
+    }
+    return render(request,'home.html',contexto)
 
 
 @login_required
@@ -245,6 +249,7 @@ ENTRADAS
 def entradas(request,id):
     prod = Produto.objects.get(pk=id)
     form = EntradaForm(request.POST or None)
+    usr = request.user
 
     if form.is_valid():
         qtd = request.POST['quantidadeent']
@@ -258,6 +263,7 @@ def entradas(request,id):
         else:
             prod.quantidade += qtdInt
             messages.success(request,"Operação realizada com sucesso")
+            form.nome = usr.username
             form.save()
             prod.save()
     
@@ -273,7 +279,7 @@ def entradas(request,id):
 """
 ENTRADAS REALIZADAS
 """
-def entradasrealizadas(request):
+def entradasrlzds(request):
     entrok = Entradas.objects.all()
     contexto = {
         'entradaok': entrok

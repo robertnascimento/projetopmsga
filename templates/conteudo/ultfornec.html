@@ -1,0 +1,41 @@
+<div class="infosDivs">
+    <div class="nome">
+      <h2><p>ÚLTIMOS FORNECEDORES CADASTRADOS</p></h2>
+    </div>
+
+    <div class="produtos">
+      {% for fornec in home|slice:":4" %}
+      <div class="brdProdutos">
+        <div class="top">
+          <div>
+            <h3>NOME</h3>
+            <h6>{{fornec.nome|upper}}</h6>
+          </div>
+        </div>
+
+        <div class="mid">
+          <div>
+            <h3>E-MAIL</h3>
+            <h5>{{fornec.emailFornecedor}}</h5>
+          </div>
+          <div>
+            <h3>CNPJ</h3>
+            <h5>{{fornec.cnpj}}</h5>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div>
+            <h3>TELEFONE</h3>
+            <h5>{{fornec.telefone}}</h5>
+          </div>
+          <div>
+            <h3>ENDEREÇO</h3>
+            <h5>{{fornec.codigoPostal}}</h5>
+          </div>
+        </div>
+      </div>
+      {% empty %} {% endfor %}
+    </div>
+    <!--FECHAMENTO DIV ULTIMOS FORNECEDORES-->
+  </div>

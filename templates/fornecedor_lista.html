@@ -17,102 +17,104 @@
   </head>
   <body>
 
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'home' %}">HOME</a>
-    <a href="{% url 'produtoList' %">PRODUTOS</a>
-    <a href="{% url 'list_tipoProduto' %}">OBJETOS</a>
-    <a href="{% url 'perfil' %">PERFIL</a>
-  </div>
-
-  <div class="divNavbar">
-    <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; </span>
-  </div>
-
-
-
-
- <div class="container">
-  <div class="col-11">
-    <div class="infosCima">
-      <div>
-        <h1>LISTA DE FORNECEDORES</h1>
-      </div>
-      <div class="fornecedoresCadCSS">
-        <a href="{% url 'cad_fornecedor' %}">
-          <img
-            src="/static/img/adicionarFornecedorIcon.png"
-            alt=""
-            width="20px"
-            height="20px"
-          />
-          <h4>CADASTRAR FORNECEDOR</h4>
-        </a>
-      </div>
+  <div class="principal">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="{% url 'home' %}">HOME</a>
+      <a href="{% url 'list_produto' %}">PRODUTOS</a>
+      <a href="{% url 'list_tipoProduto' %}">OBJETOS</a>
+      <a href="{% url 'perfil' %}">PERFIL</a>
     </div>
-    <table class="table">
-      <thead class="table-dark">
-        <tr>
-          <th>NOME</th>
-          <th>CNPJ</th>
-          <th>TELEFONE</th>
-          <th>E-MAIL</th>
-          <th>CEP</th>
-          <th>LOGO</th>
-          <th>EDITAR</th>
-          <th>EXCLUIR</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for fornec in list_fornecedor %}
-        <tr>
-          <td>{{fornec.nome|upper}}</td>
-          <td>{{fornec.cnpj}}</td>
-          <td>{{fornec.telefone}}</td>
-          <td>{{fornec.emailFornecedor}}</td>
-          <td>{{fornec.codigoPostal}}</td>
-          <td>
+  
+    <div class="divNavbar">
+      <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; </span>
+    </div>
+  
+  
+  
+  
+   <div class="container">
+    <div class="col-11">
+      <div class="infosCima">
+        <div>
+          <h1>LISTA DE FORNECEDORES</h1>
+        </div>
+        <div class="fornecedoresCadCSS">
+          <a href="{% url 'cad_fornecedor' %}">
             <img
-              src="/media/{{fornec.fotoFornecedor}}"
+              src="/static/img/adicionarFornecedorIcon.png"
               alt=""
-              width="50px"
-              height="50px"
+              width="20px"
+              height="20px"
             />
-          </td>
-          <td>
-            <a href="{% url 'edit_fornecedor' fornec.id %}">
+            <h4>CADASTRAR FORNECEDOR</h4>
+          </a>
+        </div>
+      </div>
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th>NOME</th>
+            <th>CNPJ</th>
+            <th>TELEFONE</th>
+            <th>E-MAIL</th>
+            <th>CEP</th>
+            <th>LOGO</th>
+            <th>EDITAR</th>
+            <th>EXCLUIR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fornec in list_fornecedor %}
+          <tr>
+            <td>{{fornec.nome|upper}}</td>
+            <td>{{fornec.cnpj}}</td>
+            <td>{{fornec.telefone}}</td>
+            <td>{{fornec.emailFornecedor}}</td>
+            <td>{{fornec.codigoPostal}}</td>
+            <td>
               <img
-                src="{% static '/img/iconEDITtable.png' %}"
+                src="/media/{{fornec.fotoFornecedor}}"
                 alt=""
                 width="50px"
                 height="50px"
-            /></a>
-          </td>
-          <td>
-            <a href="{% url 'fornecedor_remover' fornec.id %}">
-              <img
-                src="{% static '/img/iconDELETEtable.png' %}"
-                alt=""
-                width="50px"
-                height="50px"
-            /></a>
-          </td>
-        </tr>
-        {% empty %}
-        <td></td>
-        <td class="noBorder"></td>
-        <td class="noBorder"></td>
-        <td class="noBorder">SEM FORNECEDORES CADASTRADOS</td>
-        <td class="noBorder"></td>
-        <td class="noBorder"></td>
-        <td class="noBorder"></td>
-        <td></td>
-        {% endfor %}
-      </tbody>
-    </table>
+              />
+            </td>
+            <td>
+              <a href="{% url 'edit_fornecedor' fornec.id %}">
+                <img
+                  src="{% static '/img/iconEDITtable.png' %}"
+                  alt=""
+                  width="50px"
+                  height="50px"
+              /></a>
+            </td>
+            <td>
+              <a href="{% url 'fornecedor_remover' fornec.id %}">
+                <img
+                  src="{% static '/img/iconDELETEtable.png' %}"
+                  alt=""
+                  width="50px"
+                  height="50px"
+              /></a>
+            </td>
+          </tr>
+          {% empty %}
+          <td></td>
+          <td class="noBorder"></td>
+          <td class="noBorder"></td>
+          <td class="noBorder">SEM FORNECEDORES CADASTRADOS</td>
+          <td class="noBorder"></td>
+          <td class="noBorder"></td>
+          <td class="noBorder"></td>
+          <td></td>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  
+   </div>
   </div>
-
- </div>
   </body>
 
   <script

@@ -1,61 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+:root{
+    --azul: rgba(15, 0, 100, 0.822);
+    --azulclaro: rgba(26, 4, 150, 0.637);
+    --cinza:  rgb(206, 206, 206);
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.conteudoProd{
 
-.infosCima {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  background-color: var(--azul);
+  width: 84vw;
+  height: 20vh;
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  flex-direction: column;
-  margin-top: 100px;
-}
-
-.produtosCadCSS {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.produtosCadCSS a:hover {
-  color: brown;
-  text-decoration: underline;
-}
-
-.produtosCadCSS a {
-  text-decoration: none;
-  color: rgb(38, 38, 38);
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin-left: 15px;
-}
-
-tbody td {
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.3);
-}
-
-.sobreposicao{
-    width: 0;
-    height: 0;
-}
-
-@media (max-width: 1250px) {
 }
