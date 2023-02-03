@@ -52,8 +52,11 @@ class Produto(models.Model):
 class Retiradas(models.Model):
     quantidaderet = models.IntegerField('Quantidade',blank=False)
     nome = models.ForeignKey(Usuario,on_delete=models.PROTECT)
+    produto = models.ForeignKey(Produto,on_delete=models.PROTECT)
+    data = models.DateTimeField(default='2022-01-01 01:00:00 +00:00')
     
 class Entradas(models.Model):
     quantidadeent = models.IntegerField('Quantidade',blank=False)
     nome = models.ForeignKey(Usuario,on_delete=models.PROTECT)
-
+    produto = models.ForeignKey(Produto,on_delete=models.PROTECT)
+    data = models.DateTimeField(default='2022-01-01 01:00:00 +00:00')

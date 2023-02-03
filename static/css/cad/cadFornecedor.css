@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Silkscreen&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
 :root {
   --cinzabg: rgba(245, 245, 245, 0.9);
   --pretotxt: rgb(17, 17, 17);
+  --azul: rgba(15, 0, 100, 0.822);
+  --azulclaro: rgba(26, 4, 150, 0.288);
+  --cinza:  rgb(206, 206, 206);
 }
 
 * {
@@ -13,7 +17,7 @@
 
 body {
   background-size: auto;
-  background-image: linear-gradient(to right, rgb(15, 0, 15), rgb(7, 7, 22));
+  background-image: linear-gradient(to right, --azul, --azulclaro);
   height: 100vh;
   width: 100vw;
 }
@@ -59,23 +63,4 @@ main {
 
 .alinhamento h4{
     font-family: "Oswald", sans-serif;
-}
-
-.btnVoltar{
-  border: 1px;
-  border-style: solid;
-  background-color: rgb(110, 110, 110);
-  width: 20px;
-  height: 20px;
-}
-
-.btnVoltar p{
-  font-style: none;
-  color: black;
-}
-
-.btns{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
 }
