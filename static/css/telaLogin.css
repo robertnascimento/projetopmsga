@@ -76,6 +76,7 @@ main {
 .botaoLR {
   border-radius: 5px;
   border-width: 0;
+  margin: 2px;
   width: 80px;
   height: 35px;
   background-color: rgb(46, 44, 66);
