@@ -271,7 +271,7 @@ def entradas(request,id):
             messages.error(request,"Digite um valor menor ou igual à 10")
 
         else:
-            prod.quantidadeent += qtdInt
+            prod.quantidade += qtdInt
             entrada = form.save(commit=False)
             entrada.nome = request.user
             entrada.produto = prod
