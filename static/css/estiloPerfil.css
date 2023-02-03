@@ -31,11 +31,11 @@
 
 .usuario tbody{
 
-    background-color: bisque;
     border-color: var(--azul);
     width: 84vw;
     height: 5vh;
     flex-direction: row;
+    color: var(--cinza);
 
 }
 
