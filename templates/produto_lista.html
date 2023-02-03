@@ -33,7 +33,7 @@
           <h1>PRODUTOS</h1>
         </div>
         <div class="fornecedoresCadCSS">
-          <a href="{% url 'cad_produto' %}">
+          <a class="imgCadF" href="{% url 'cad_produto' %}">
             <h4> <img src="/static/img/adicionarFornecedorIcon.png" alt="" width="20px" height="20px" />CADASTRAR
               PRODUTO</h4>
           </a>
@@ -70,18 +70,18 @@
           </div>
 
           <div class="iconsF">
-            <a href="{% url 'edit_produto' prod.id %}"> EDITAR
+            <a href="{% url 'edit_produto' prod.id %}"> 
               <i class="fa-solid fa-pen-to-square"></i>
             </a>
-            <a href="{% url 'del_produto' prod.id %}"> EXCLUIR
+            <a href="{% url 'del_produto' prod.id %}"> 
               <i class="fa-solid fa-xmark"></i>
             </a>
 
-            <a href="{% url 'entradas' prod.id %}">INSERIR<i class="fa-solid fa-turn-down"></i></a>
+            <a href="{% url 'entradas' prod.id %}"><i class="fa-solid fa-turn-down"></i></a>
 
             {% if prod.quantidade == 0 %}
             {% else %}
-            <a href="{% url 'retiradas' prod.id %}">RETIRAR<i class="fa-solid fa-turn-up"></i></a>
+            <a href="{% url 'retiradas' prod.id %}"><i class="fa-solid fa-turn-up"></i></a>
             {% endif %}
           </div>
 
