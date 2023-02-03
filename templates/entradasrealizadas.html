@@ -10,12 +10,12 @@
   </head>
   <body>
     <div class="principal">
+      {% include "base/navbar.html "%}
 
       <div class="containerPrincipal">
-      {% include "base/navbar.html "%}
         <div class="conteudo">
           {% for message in messages %} {% if message.tags == 'error' %}
-          <strong>!</strong>{{ message }} {% endif %} {% endfor %}
+              <strong>!</strong>{{ message }} {% endif %} {% endfor %}
           <div class="entradas">
               {% for entrok in entradaok %}
               <div class="enttop"><div><h5>RESPONSÁVEL:</h5> <h3>{{entrok.nome}}</h3></div> <div><a href="{% url 'entdel' entrok.id %}">EXCLUIR</a></div></div>
