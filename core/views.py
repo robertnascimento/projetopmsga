@@ -10,8 +10,14 @@ from .forms import EntradaForm, FornecedorForm, TipoProdutoForm, ProdutoForm, Us
 @login_required
 def home(request):
     fornec = Fornecedor.objects.all()
+    prd = Produto.objects.all()
+    ret = Retiradas.objects.all()
+    entr = Entradas.objects.all()
     contexto = {
-        'home': fornec
+        'home': fornec,
+        'produto': prd,
+        'retirada': ret,
+        'entrada': entr
     }
     return render(request,'home.html',contexto)
 
@@ -193,6 +199,7 @@ def produto_remover(request,id):
 """
 RETIRADAS
 """
+@login_required
 def retiradas(request,id):
     prod = Produto.objects.get(pk=id)
     form = RetiradaForm(request.POST or None)
@@ -207,8 +214,11 @@ def retiradas(request,id):
         elif qtdInt <= prod.quantidade:
             prod.quantidade -= qtdInt
             messages.success(request,"Retirada realizada com sucesso")
-            form.save()
-            prod.save()
+            retirada = form.save(commit=False)
+            retirada.nome = request.user
+            retirada.produto = prod
+            retirada.save()
+            # prod.save()
         else:
             messages.info(request,"Quantidade solicitada, maior do que à quantidade disponível")
     
