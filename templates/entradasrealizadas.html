@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static '/css/entradas.css' %}" />
-    <title>SGCE</title>
-  </head>
-  <body>
-    <div class="principal">
-      {% include "base/navbar.html "%}
 
-      <div class="containerPrincipal">
-        <div class="conteudo">
-          {% for message in messages %} {% if message.tags == 'error' %}
-              <strong>!</strong>{{ message }} {% endif %} {% endfor %}
-              {% for entrok in entradaok %}
-          <div class="entradas">
-              <div><div><h5>RESPONSÁVEL:</h5> <h3>{{entrok.nome}}</h3></div> <div><a href="{% url 'entdel' entrok.id %}">EXCLUIR</a></div></div>
-              <div><h5>PRODUTO:</h5><h3>{{entrok.produto}}</h3></div>
-              <div><h5>QUANTIDADE:</h5><h3>{{entrok.quantidadeent}}</h3></div>
-              <div><h3>DATA:</h3><h5>{{entrok.data}}</h5></div>
-              
-              
-              
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static '/css/entradas.css' %}" />
+  <title>SGCE</title>
+</head>
+
+<body>
+  <div class="principal">
+    {% include "base/navbar.html "%}
+
+    <div class="containerPrincipal">
+      <div class="conteudo">
+        {% for message in messages %} {% if message.tags == 'error' %}
+        <strong>!</strong>{{ message }} {% endif %} {% endfor %}
+        {% for entrok in entradaok %}
+        <div class="entradas">
+          <div>
+            <div>
+              <h5>RESPONSÁVEL:</h5>
+              <h3>{{entrok.nome}}</h3>
+            </div>
+            <div><a href="{% url 'entdel' entrok.id %}">EXCLUIR</a></div>
           </div>
-          {% empty %}
-          <div class="zeroent">
-            <h2>NÃO HOUVE ENTRADAS</h2>
+          <div>
+            <h5>PRODUTO:</h5>
+            <h3>{{entrok.produto}}</h3>
           </div>
-          {% endfor %}
+          <div>
+            <h5>QUANTIDADE:</h5>
+            <h3>{{entrok.quantidadeent}}</h3>
+          </div>
+          <div>
+            <h3>DATA:</h3>
+            <h5>{{entrok.data}}</h5>
+          </div>
+
+
+
         </div>
+        {% empty %}
+        <div class="zeroent">
+          <h2>NÃO HOUVE ENTRADAS</h2>
+        </div>
+        {% endfor %}
       </div>
     </div>
-  </body>
+  </div>
+</body>
+<script
+src="https://kit.fontawesome.com/1e09d9b871.js"
+crossorigin="anonymous"
+></script>
 </html>
