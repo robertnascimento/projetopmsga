@@ -16,7 +16,7 @@ def home(request):
     contexto = {
         'home': fornec,
         'produto': prd,
-        'retirada': ret,
+        'rtr': ret,
         'entrada': entr,
     }
     return render(request,'home.html',contexto)

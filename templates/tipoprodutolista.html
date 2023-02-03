@@ -1,44 +1,32 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/tpproduto.css' %}"
-    />
-    <title>SGCE</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/retiradas.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
     <div class="principal">
-        {% include "base/navbar.html "%}
+      {% include "base/navbar.html "%}
 
-        <div class="principal">
-
-            <table class="usuario">
-              <thead class="tableup">
-                <tr>
-                  <th>NOME</th>
-                </tr>
-              </thead>
-      
-              <tbody>
-                {% for tpProd in list_tipoProduto %}
-                <tr>
-                  <td>{{tpProd.nome | upper}}</td>
-                </tr>
-                {% empty %}
-                <td>-----------</td>
-                {% endfor %}
-              </tbody>
-            </table>
-
+      <div class="containerPrincipal">
+        <div class="conteudo">
+          {% for message in messages %} {% if message.tags == 'error' %}
+              <strong>!</strong>{{ message }} {% endif %} {% endfor %}
+          <div class="retiradas">
+            {% for tpProd in list_tipoProduto %}
+              <div class="rtrtop"><div><h5>RESPONSÁVEL:</h5> <h3>{{tpProd.nome | upper}}</h3></div> <div><a href="{% url 'del_tipoProduto' tpProd.id %}">EXCLUIR</a></div></div>
+              {% empty %}
+              <div class="zerortr">
+                <h2>NÃO HOUVE RETIRADAS</h2>
+              </div>
+              {% endfor %}
+          </div>
         </div>
-
+      </div>
     </div>
-    <p><a href="{% url 'edit_dados' user.id %}">EDITAR DADOS</a></p>
-</body>
+  </body>
 </html>
