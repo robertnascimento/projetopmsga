@@ -10,12 +10,13 @@
   </head>
   <body>
     <div class="principal">
-      {% for message in messages %} {% if message.tags == 'error' %}
-              <strong>!</strong>{{ message }} {% endif %} {% endfor %}
-      {% include "base/navbar.html "%}
+      
 
       <div class="containerPrincipal">
         <div class="conteudo">
+          {% for message in messages %} {% if message.tags == 'error' %}
+              <strong>!</strong>{{ message }} {% endif %} {% endfor %}
+      {% include "base/navbar.html "%}
           <div class="retiradas">
               {% for rtrd in rtrok %}
               <div class="rtrtop"><div><h5>RESPONSÁVEL:</h5> <h3>{{rtrd.nome}}</h3></div> <div><a href="{% url 'rtrdel' rtrd.id %}">EXCLUIR</a></div></div>
