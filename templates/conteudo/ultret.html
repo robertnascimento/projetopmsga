@@ -4,12 +4,12 @@
     </div>
   
     <div class="produtos">
-      {% for rtr in retirada|slice:"4" %}
+      {% for ret in rtr|slice:"4" %}
       <div class="brdProdutos">
         <div class="top">
           <div>
             <h3>RESPONSÁVEL</h3>
-            <h6>{{rtr.nome}}</h6>
+            <h6>{{ret.nome}}</h6>
           </div>
           <div></div>
           <div></div>
@@ -21,22 +21,37 @@
         <div class="mid">
           <div>
             <h3>PRODUTO</h3>
-            <h5>{{rtr.produto}}</h5>
+            <h5>{{ret.produto}}</h5>
           </div>
         </div>
   
         <div class="bottom">
           <div>
             <h3>QUANTIDADE</h3>
-            <h5>{{rtr.quantidadeent}}</h5>
+            <h5>{{ret.quantidadeent}}</h5>
           </div>
           <div>
             <h3>DATA DE RETIRADA</h3>
-            <h5>{{rtr.data}}</h5>
+            <h5>{{ret.data}}</h5>
           </div>
         </div>
       </div>
-      {% empty %} {% endfor %}
+      {% empty %}
+      <div class="brdProdutos">
+        <div class="top">
+
+        </div>
+  
+        <div class="mid">
+  
+        </div>
+  
+        <div class="bottom">
+  
+        </div>
+  
+      </div> 
+      {% endfor %}
     </div>
     <!--FECHAMENTO DIV ULTIMAS RETIRADAS-->
   </div>

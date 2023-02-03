@@ -10,14 +10,14 @@ from .forms import EntradaForm, FornecedorForm, TipoProdutoForm, ProdutoForm, Us
 @login_required
 def home(request):
     fornec = Fornecedor.objects.all()
-    prd = Produto.objects.all()
+    prod = Produto.objects.all()
     ret = Retiradas.objects.all()
     entr = Entradas.objects.all()
     contexto = {
         'home': fornec,
-        'produto': prd,
+        'produto': prod,
         'rtr': ret,
-        'entrada': entr,
+        'entrada': entr
     }
     return render(request,'home.html',contexto)
 
