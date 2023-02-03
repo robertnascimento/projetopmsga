@@ -17,7 +17,7 @@ def home(request):
         'home': fornec,
         'produto': prd,
         'retirada': ret,
-        'entrada': entr
+        'entrada': entr,
     }
     return render(request,'home.html',contexto)
 

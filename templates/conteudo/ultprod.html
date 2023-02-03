@@ -4,11 +4,12 @@
     </div>
 
     <div class="produtos">
+      {% for prod in produto|slice:"4" %}
       <div class="brdProdutos">
         <div class="top">
           <div>
             <h3>MODELO</h3>
-            <h5>INFO</h5>
+            <h5>{{prod.modelo | upper}}</h5>
           </div>
           <div></div>
           <div></div>
@@ -20,21 +21,26 @@
         <div class="mid">
           <div>
             <h3>EQUIPAMENTO</h3>
-            <h5>INFO</h5>
+            <h5>{{prod.equipamento | upper}}</h5>
           </div>
         </div>
 
         <div class="bottom">
           <div>
             <h3>FORNECEDORES</h3>
-            <h5>INFO</h5>
+            <h5>{{prod.fornecedor | upper}}</h5>
           </div>
           <div>
             <h3>QUANTIDADE</h3>
-            <h5>INFO</h5>
+            <h5>{%if prod.quantidade == 0 %}
+              Sem estoque
+              {% else %}
+              {{prod.quantidade}}
+              {% endif %}</h5>
           </div>
         </div>
       </div>
+      {% empty %} {% endfor %}
     </div>
     <!--FECHAMENTO DIV ULTIMOS PRODUTOS-->
   </div>

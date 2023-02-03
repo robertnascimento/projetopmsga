@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static '/css/entradas.css' %}" />
-    <title>Document</title>
+    <title>SGCE</title>
   </head>
   <body>
     <div class="principal">
@@ -16,19 +16,21 @@
         <div class="conteudo">
           {% for message in messages %} {% if message.tags == 'error' %}
               <strong>!</strong>{{ message }} {% endif %} {% endfor %}
-          <div class="entradas">
               {% for entrok in entradaok %}
-              <div class="enttop"><div><h5>RESPONSÁVEL:</h5> <h3>{{entrok.nome}}</h3></div> <div><a href="{% url 'entdel' entrok.id %}">EXCLUIR</a></div></div>
+          <div class="entradas">
+              <div><div><h5>RESPONSÁVEL:</h5> <h3>{{entrok.nome}}</h3></div> <div><a href="{% url 'entdel' entrok.id %}">EXCLUIR</a></div></div>
               <div><h5>PRODUTO:</h5><h3>{{entrok.produto}}</h3></div>
               <div><h5>QUANTIDADE:</h5><h3>{{entrok.quantidadeent}}</h3></div>
               <div><h3>DATA:</h3><h5>{{entrok.data}}</h5></div>
               
-              {% empty %}
-              <div class="zeroent">
-                <h2>NÃO HOUVE ENTRADAS</h2>
-              </div>
-              {% endfor %}
+              
+              
           </div>
+          {% empty %}
+          <div class="zeroent">
+            <h2>NÃO HOUVE ENTRADAS</h2>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
