@@ -19,7 +19,7 @@
               <strong>!</strong>{{ message }} {% endif %} {% endfor %}
           <div class="retiradas">
               {% for rtrd in rtrok %}
-              <div class="rtrtop"><div><h5>RESPONSÁVEL:</h5> <h3>{{rtrd.nome}}</h3></div> <div><a href="{% url 'rtrdel' rtrd.id %}">EXCLUIR</a></div></div>
+              <div class="rtrtop"><div><h5>RESPONSÁVEL:</h5> <h3>{{rtrd.nome}}</h3></div></div>
               <div><h5>PRODUTO:</h5><h3>{{rtrd.produto}}</h3></div>
               <div><h5>QUANTIDADE:</h5><h3>{{rtrd.quantidaderet}}</h3></div>
               <div><h3>DATA:</h3><h5>{{rtrd.data}}</h5></div>

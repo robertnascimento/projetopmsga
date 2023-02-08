@@ -16,7 +16,7 @@
 }
 
 body {
-  background-image: linear-gradient(to right, --azul, --azulclaro);
+  background-image: linear-gradient(to right, var(--azul), var(--azulclaro));
   height: 100vh;
   width: 100vw;
 }

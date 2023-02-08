@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import Permission
 from django.contrib import messages
+from datetime import date, datetime
 from .models import Fornecedor, TipoProduto , Produto, Usuario, Retiradas, Entradas
 from .forms import EntradaForm, FornecedorForm, TipoProdutoForm, ProdutoForm, UsuarioCreationForm, RetiradaForm
 
@@ -193,6 +194,7 @@ def produto_edit(request,id):
 def produto_remover(request,id):
     prd = Produto.objects.get(pk=id)
     prd.delete()
+    messages.error(request,"Entrada apagada")
     return redirect('list_produto')
 
 
@@ -203,6 +205,7 @@ RETIRADAS
 def retiradas(request,id):
     prod = Produto.objects.get(pk=id)
     form = RetiradaForm(request.POST or None)
+    data_hoje = datetime.now()
 
     if form.is_valid():
         qtd = request.POST['quantidaderet']
@@ -217,8 +220,8 @@ def retiradas(request,id):
             retirada = form.save(commit=False)
             retirada.nome = request.user
             retirada.produto = prod
+            retirada.data = data_hoje
             retirada.save()
-            # prod.save()
         else:
             messages.info(request,"Quantidade solicitada, maior do que à quantidade disponível")
     
@@ -259,7 +262,7 @@ ENTRADAS
 def entradas(request,id):
     prod = Produto.objects.get(pk=id)
     form = EntradaForm(request.POST or None)
-    usr = request.user
+    data_hoje = datetime.now()
 
     if form.is_valid():
         qtd = request.POST['quantidadeent']
@@ -275,6 +278,7 @@ def entradas(request,id):
             entrada = form.save(commit=False)
             entrada.nome = request.user
             entrada.produto = prod
+            entrada.data = data_hoje
             messages.success(request,"Operação realizada com sucesso")
             entrada.save()
             prod.save()

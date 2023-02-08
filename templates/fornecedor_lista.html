@@ -22,47 +22,47 @@
           </div>
           <div class="fornecedoresCadCSS">
             <a class="imgCadF" href="{% url 'cad_fornecedor' %}">
-              <h4> <img
-                src="/static/img/adicionarFornecedorIcon.png"
-                alt=""
-                width="20px"
-                height="20px"
-              /> CADASTRAR FORNECEDOR</h4>
+              <h4>
+                <img
+                  src="/static/img/adicionarFornecedorIcon.png"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />
+                CADASTRAR FORNECEDOR
+              </h4>
             </a>
           </div>
         </div>
         {% for fornec in list_fornecedor %}
         <div class="perfilF">
-          
-                  <div class="pforne">
-                    <div>              <img
-                      src="/media/{{fornec.fotoFornecedor}}"
-                      alt=""
-                      width="100px"
-                      height="100px"
-                      
-                    /></div>
-                    <div class="pforneInfo">
-                      <div><h5>NOME:{{fornec.nome|upper}}</h5></div>
-                  <div><h5>CNPJ: {{fornec.cnpj}}</h5></div>
-                  <div><h5>TELEFONE:{{fornec.telefone}}</h5></div>
-                  <div><h5>E-MAIL:{{fornec.emailFornecedor}}</h5></div>
-                  <div><h5>CEP: {{fornec.codigoPostal}}</h5></div>
-                    </div>
-  
-                    <div class="iconsF">
-                      <a href="{% url 'edit_fornecedor' fornec.id %}">
-                        <i class="fa-solid fa-pen-to-square"></i> EDITAR
-                      </a>
-                      <a href="{% url 'fornecedor_remover' fornec.id %}">
-                        <i class="fa-solid fa-xmark"></i> EXCLUIR
-                      </a>
-                    </div>
-                
-                  </div>
-                  {% empty %}
-                SEM FORNECEDORES CADASTRADOS
-                {% endfor %}
+          <div class="pforne">
+            <div>
+              <img
+                src="/media/{{fornec.fotoFornecedor}}"
+                alt=""
+                width="100px"
+                height="100px"
+              />
+            </div>
+            <div class="pforneInfo">
+              <div><h5>NOME:{{fornec.nome|upper}}</h5></div>
+              <div><h5>CNPJ: {{fornec.cnpj}}</h5></div>
+              <div><h5>TELEFONE:{{fornec.telefone}}</h5></div>
+              <div><h5>E-MAIL:{{fornec.emailFornecedor}}</h5></div>
+              <div><h5>CEP: {{fornec.codigoPostal}}</h5></div>
+            </div>
+
+            <div class="iconsF">
+              <a href="{% url 'edit_fornecedor' fornec.id %}">
+                <i class="fa-solid fa-pen-to-square"></i> EDITAR
+              </a>
+              <a href="{% url 'fornecedor_remover' fornec.id %}">
+                <i class="fa-solid fa-xmark"></i> EXCLUIR
+              </a>
+            </div>
+          </div>
+          {% empty %} SEM FORNECEDORES CADASTRADOS {% endfor %}
         </div>
       </div>
     </div>
